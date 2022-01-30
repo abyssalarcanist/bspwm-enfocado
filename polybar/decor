@@ -1,0 +1,21 @@
+[module/spacing]
+type = custom/text
+content = " "
+content-font = 3
+content-background = ${color.transparent}
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/LD]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.transparent}
+content-foreground = ${color.background}
+
+[module/RD]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.transparent}
+content-foreground = ${color.background}

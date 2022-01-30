@@ -1,0 +1,15 @@
+[color]
+; Selenized black
+; https://github.com/jan-warchol/selenized
+
+transparent	= #00000000
+
+background	= #181818
+foreground	= #b9b9b9
+dim		= #777777
+
+accent		= #70b433
+warning		= #ed4a46
+
+; for launcher
+blue		= #368aeb

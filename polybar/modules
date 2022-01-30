@@ -1,0 +1,323 @@
+[module/brightness]
+type = internal/backlight
+
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/brightness/
+card = ${system.backlight}
+
+enable-scroll = true
+
+format = <ramp> <label>
+;format-background = ${color.background}
+format-padding = 1
+
+label = %percentage%%
+;label-foreground = ${color.foreground}
+
+; Nerd Font glyphs: nf-mdi-brightness_5, nf-mdi-brightness_6, nf-mdi-brightness_7
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-font = 2
+ramp-foreground = ${color.accent}
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/volume]
+type = internal/pulseaudio
+
+;sink = alsa_output.pci-0000_12_00.3.analog-stereo
+
+use-ui-max = false
+
+interval = 5
+
+;format-volume-foreground = ${color.foreground}
+;format-volume-background = ${color.background}
+;format-muted-background = ${color.background}
+
+format-volume = <ramp-volume> <label-volume>
+format-volume-padding = 1
+
+format-muted = <label-muted>
+; Nerd Font glyph: nf-mdi-volume_mute
+format-muted-prefix = "ﱝ "
+format-muted-prefix-font = 2
+format-muted-foreground = ${color.dim}
+format-muted-padding = 1
+
+label-volume = "%percentage%%"
+label-muted = "mute"
+
+
+; Nerd Font glyphs: nf-mdi-volume_low, nf-mdi-volume_medium, nf-mdi-volume_high
+ramp-volume-0 = "奄"
+ramp-volume-1 = "奔"
+ramp-volume-2 = "墳"
+ramp-volume-font = 2
+ramp-volume-foreground = ${color.accent}
+
+ramp-headphones-0 = 
+ramp-headphones-1 = 
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+
+battery = ${system.battery}
+adapter = ${system.adapter}
+
+poll-interval = 2
+time-format = %H:%M
+
+format-charging = <animation-charging> <label-charging>
+
+format-discharging = <ramp-capacity> <label-discharging>
+
+; Nerd Font glyph: nf-fa-battery_4
+format-full-prefix = " "
+format-full-prefix-font = 2
+format-full-prefix-foreground = ${color.accent}
+
+label-charging = "%percentage%%"
+label-discharging = "%percentage%%"
+label-full = "%percentage%%"
+
+; Nerd Font glyphs: nf-fa-battery_0, nf-fa-battery_1, nf-fa-battery_2, nf-fa-battery_3, nf-fa-battery_4
+ramp-capacity-0 = ""
+ramp-capacity-1 = ""
+ramp-capacity-2 = ""
+ramp-capacity-3 = ""
+ramp-capacity-4 = ""
+ramp-capacity-font = 2
+ramp-capacity-foreground = ${color.accent}
+
+; Nerd Font glyphs: nf-fa-battery_0, nf-fa-battery_1, nf-fa-battery_2, nf-fa-battery_3, nf-fa-battery_4
+animation-charging-0 = ""
+animation-charging-1 = ""
+animation-charging-2 = ""
+animation-charging-3 = ""
+animation-charging-4 = ""
+animation-charging-font = 2
+animation-charging-foreground = ${color.accent}
+animation-charging-framerate = 750
+
+; Nerd Font glyph: nf-fa-bolt
+;format-charging-prefix = " "
+;format-charging-prefix-foreground = ${color.accent}
+
+format-charging-padding = 1
+format-discharging-padding = 1
+format-full-padding = 1
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/bspwm]
+type = internal/bspwm
+
+pin-workspaces = true
+inline-mode = false
+
+enable-click = true
+enable-scroll = true
+reverse-scroll = true
+
+fuzzy-match = true
+
+format = <label-state>
+format-padding = 1
+format-font = 1
+
+label-focused = %name%
+;label-focused-foreground = ${color.foreground}
+label-focused-underline =  ${color.accent}
+label-focused-padding = 1
+
+label-occupied = %name%
+;label-occupied-foreground = ${color.foreground}
+;label-occupied-underline = 
+label-occupied-padding = 1
+
+label-urgent = %name%
+label-urgent-background = ${color.warning}
+label-urgent-padding = 1
+label-empty =  
+
+; Separator in between workspaces
+;label-separator = ""
+;label-separator-padding = 1
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/mod]
+type = internal/bspwm
+
+format = <label-mode>
+format-padding = 1
+format-font = 5
+
+label-monocle = "[M]"
+label-tiled = "[]="
+
+label-floating = ", ><>"
+label-pseudotiled = ", Pseudo"
+label-fullscreen = ", Full"
+
+label-locked = " | Locked"
+label-sticky = " | Sticky"
+label-private = " | Private"
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+; Nerd Font glyph: nf-mdi-memory
+format-prefix = " "
+format-prefix-font = 2
+format-padding = 1
+format-prefix-foreground = ${color.accent}
+label = "%{A1:terminal -e gtop &:}%percentage%%%{A}"
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/date]
+type = internal/date
+interval = 1
+format-padding = 1
+date = %F
+date-alt = %a %d-%m-%y
+
+
+; Nerd Font glyph: nf-mdi-calendar_blank
+format-prefix = " "
+format-prefix-font = 2
+format-prefix-foreground = ${color.accent}
+
+label = %date%
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/time]
+type = internal/date
+interval = 1
+format-padding = 1
+time = %T
+
+; Nerd Font glyph: nf-mdi-clock 
+format-prefix = " "
+format-prefix-font = 2
+format-prefix-foreground = ${color.accent}
+
+format = <label>
+label = %time%
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/filesystem]
+type = internal/fs
+
+mount-0 = /
+interval = 30
+fixed-values = true
+
+format-mounted = <label-mounted>
+; Nerd Font glyph: nf-fa-hdd_0
+format-mounted-prefix = " "
+format-mounted-prefix-font = 2
+format-mounted-prefix-foreground = ${color.accent}
+
+format-unmounted = <label-unmounted>
+; Nerd Font glyph: nf-fa-hdd_0
+format-unmounted-prefix = " "
+format-unmounted-prefix-font = 2
+
+label-mounted = "%{A1:terminal -e ncdu &:}%free%%{A}"
+label-unmounted = " %mountpoint%: NA"
+
+format-unmounted-background = ${color.background}
+format-unmounted-foreground = ${color.white}
+
+format-mounted-padding = 1
+format-unmounded-padding = 1
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/memory]
+type = internal/memory
+
+interval = 1
+
+format = <label>
+; Nerd Font glyph: nf-fa-microchip
+format-prefix = " "
+format-prefix-font = 2
+format-prefix-foreground = ${color.accent}
+
+label = "%{A1:terminal -e htop &:}%mb_used%%{A}"
+
+format-foreground = ${color.foreground}
+format-background = ${color.background}
+format-padding = 1
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/launcher]
+type=custom/text
+; Nerd Font glyph: nf-linux-archlinux
+content = 
+content-font = 2
+click-left = ~/.config/rofi/bin/launcher_text
+
+content-foreground = ${color.blue}
+content-background = ${color.background}
+content-padding = 1
+
+[module/powermenu]
+type = custom/text
+; Nerd Font glyph: nf-mdi-power
+content = 襤
+content-font = 3
+click-left = ~/.config/rofi/bin/powermenu
+
+content-foreground = ${color.warning}
+content-padding = 1
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/wired-network]
+type = internal/network
+interface = ${system.network_interface}
+
+[module/wireless-network]
+type = internal/network
+interface = ${system.network_interface}
+
+[module/network]
+type = internal/network
+interface = ${system.network_interface}
+
+interval = 1.0
+accumulate-stats = true
+unknown-as-up = true
+
+format-connected = <ramp-signal> <label-connected>
+label-connected = "%{A1:def-nmdmenu &:}%essid%%{A}"
+
+format-disconnected = <label-disconnected>
+; Nerd Font glyph: nf-mdi-wifi_off
+format-disconnected-prefix = "睊 "
+format-disconnected-prefix-font = 2
+label-disconnected = "%{A1:def-nmdmenu &:}Offline%{A}"
+
+; Nerd Font glyph: nf-mdi-wifi (might want to change this, font awesome maybe?)
+ramp-signal-0 = ""
+ramp-signal-foreground = ${color.accent}
+ramp-signal-font = 2
+
+format-connected-padding = 1
+format-disconnected-foreground = ${color.dim}
+format-disconnected-padding = 1

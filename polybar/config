@@ -1,0 +1,88 @@
+[global/wm]
+margin-bottom = 0
+margin-top = 0
+
+include-file = ~/.config/polybar/colors
+include-file = ~/.config/polybar/modules
+include-file = ~/.config/polybar/decor
+include-file = ~/.config/polybar/system
+
+
+[bar/main]
+monitor =
+monitor-fallback =
+monitor-strict = false
+
+override-redirect = false
+
+bottom = false
+fixed-center = true
+
+width = 100%:-24px
+height = 25
+
+offset-x = 12px
+offset-y = 12px
+
+background = ${color.transparent}
+foreground = ${color.foreground}
+
+line-size = 2
+line-color = ${color.accent}
+
+padding = 0
+
+module-margin-left = 0
+module-margin-right = 0
+
+wm-restack = bspwm
+
+;font-0 = "Source Code Pro Medium:size=10;3"
+font-0 = "BlexMono Nerd Font:size=10;3"
+font-1 = "Iosevka Nerd Font:size=12;3"
+font-2 = "Iosevka Nerd Font:size=16;4"
+font-3 = "Iosevka Nerd Font:size=18;4"
+;font-4 = "Source Code Pro Bold:size=13;3"
+
+# Default
+modules-left = LD powermenu RD spacing LD launcher RD spacing LD date time RD spacing LD network RD
+modules-center = LD bspwm RD
+modules-right = LD battery volume brightness RD spacing LD cpu memory filesystem RD spacing
+
+spacing = 0
+dim-value = 1.0
+
+tray-position = right
+tray-detached = false
+tray-maxsize = 16
+tray-background = ${color.transparent}
+tray-offset-x = 0
+tray-offset-y = 0
+tray-padding = 0
+tray-scale = 1.0
+
+enable-ipc = true
+
+cursor-click = 
+cursor-scroll = 
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[settings]
+throttle-output = 5
+throttle-output-for = 10
+
+screenchange-reload = false
+
+compositing-background = source
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
+
+pseudo-transparency = false
+
+format-foreground = ${color.foreground}
+format-background = ${color.background}
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
