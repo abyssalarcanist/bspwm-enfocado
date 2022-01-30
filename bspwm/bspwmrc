@@ -28,5 +28,5 @@ xset s 300 5 & XSECURELOCK_BLANK_TIMEOUT=15 XSECURELOCK_FONT="BlexMono Nerd Font
 feh --bg-scale ~/.config/bspwm/wallpaper.jpg & # background
 dunst & # notifications
 picom & # compositor
-xfce4-power-manager &
-nm-applet
+xfce4-power-manager & # power manager
+nm-applet # network manager
