@@ -1,0 +1,2 @@
+# bspwm-enfocado
+BSPWM dotfiles
