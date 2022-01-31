@@ -19,6 +19,7 @@ BSPWM dotfiles
 - `pavucontrol`
 ### Fonts
 - `ttf-iosevka-nerd`
+- `nerd-fonts-fantasque-sans-mono`
 - `nerd-fonts-ibm-plex-mono`
 
 ## Credits
