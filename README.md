@@ -1,7 +1,7 @@
 # bspwm-enfocado
 BSPWM dotfiles
 
-## Required packages
+## Required packages (Arch Linux + AUR)
 - `bspwm`
 - `sxhkd`
 - `polybar`
